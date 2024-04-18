@@ -12,6 +12,14 @@ pipeline {
     }
 
     stages {
+        stage('Dynamic') {
+            when {
+                branch:'feature/multi*'
+            }
+            steps {
+                echo (message: "Dynamic")
+            }
+        }
         stage('Download') {
             steps {
                 cleanWs()
